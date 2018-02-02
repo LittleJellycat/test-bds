@@ -63,6 +63,19 @@ fun main(args: Array<String>) {
             + "${LocalTime.ofNanoOfDay(maxForAllExchangesTime + oneSecond)}")
     maxForEachExchange.forEach {
         println("Max for exchange ${it.key}: ${it.value.first} at ${LocalTime.ofNanoOfDay(it.value.second)} - "
-                + "${LocalTime.ofNanoOfDay(it.value.second + oneSecond)})")
+                + "${LocalTime.ofNanoOfDay(it.value.second + oneSecond)}")
+    }
+
+    //Uncomment the following lines to get the output in russian
+
+    println("Максимальное количество сделок в течение одной секунды было между " +
+            "${LocalTime.ofNanoOfDay(maxForAllExchangesTime)} "
+            + "и ${LocalTime.ofNanoOfDay(maxForAllExchangesTime + oneSecond)}. " +
+            "В этот интервал прошло $maxForAllExchanges сделок.")
+    maxForEachExchange.forEach {
+        println("Максимальное количество сделок на ${it.key} в течение одной секунды было между " +
+                "${LocalTime.ofNanoOfDay(it.value.second)} "
+                + "и ${LocalTime.ofNanoOfDay(it.value.second + oneSecond)}. " +
+                "В этот интервал прошло ${it.value.first} сделок.")
     }
 }
